@@ -1,0 +1,26 @@
+{
+  "name": "mocha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tugas_nopi": "mocha tugas_nopi --reporter mochawesome",
+    "report-mochawesome": "mocha tugas_nopi --timeout 10000 --reporter mochawesome",
+    "report-simple-html": "mocha tugas_nopi --timeout 10000 --reporter mocha-simple-html-reporter --reporter-options output=report.html"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ajv": "^8.20.0"
+  },
+  "devDependencies": {
+    "assert": "^2.1.0",
+    "chai": "^6.2.2",
+    "mocha": "^12.0.3",
+    "mochawesome": "^8.1.1",
+    "selenium-webdriver": "^4.51.0"
+  }
+}
