@@ -7,13 +7,13 @@
     "tugas_nopi": "mocha tugas_nopi --reporter mochawesome",
     "report-mochawesome": "mocha tugas_nopi --timeout 10000 --reporter mochawesome",
     "report-simple-html": "mocha tugas_nopi --timeout 10000 --reporter mocha-simple-html-reporter --reporter-options output=report.html"
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@faker-js/faker": "^10.6.0",
     "ajv": "^8.20.0"
   },
   "devDependencies": {

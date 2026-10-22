@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2026-10-20T04:10:37.122Z",
-    "end": "2026-10-20T04:10:47.524Z",
-    "duration": 10402,
+    "start": "2026-10-20T10:27:48.553Z",
+    "end": "2026-10-20T10:27:59.281Z",
+    "duration": 10728,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "94839cb5-1b01-44f7-a9a9-8b3e560c4dcf",
+      "uuid": "065e2206-1f31-4ea5-8e67-71556f2b02ed",
       "title": "",
       "fullFile": "C:\\Users\\IRMA SURYANI\\Documents\\Bootcame Nopi\\Tugas\\Automation_UI\\tugas_nopi\\Sesi9.js",
       "file": "\\tugas_nopi\\Sesi9.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "aea6a175-d9ea-4aa8-aa36-bba2b7b13c8d",
+          "uuid": "988a79c2-c790-4b4a-83c7-737d0bc7a749",
           "title": "Belajar Bareng - Tugas Sesi 9",
           "fullFile": "C:\\Users\\IRMA SURYANI\\Documents\\Bootcame Nopi\\Tugas\\Automation_UI\\tugas_nopi\\Sesi9.js",
           "file": "\\tugas_nopi\\Sesi9.js",
@@ -38,29 +38,29 @@
               "title": "Should login and add user successfully",
               "fullTitle": "Belajar Bareng - Tugas Sesi 9 Should login and add user successfully",
               "timedOut": false,
-              "duration": 10372,
+              "duration": 10719,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "let options = new chrome.Options();\n//memastikan chrome bersih dari popup yang tidak diperlukan\noptions.addArguments(\"--disable-features=PasswordLeakDetection\");\noptions.setUserPreferences({\n    \"credentials_enable_service\": false,\n    \"profile.password_manager_enabled\": false,\n    \"profile.password_manager_leak_detection\": false\n});\nlet driver = await new Builder()\n    .forBrowser(\"chrome\")\n    .setChromeOptions(options)\n    .build();\ntry {\n    // Membuka URL website \n    await driver.get(\"https://belajar-bareng.onrender.com/\");\n  // Proses Login (Menunggu elemen input dan tombol login muncul)\n    let usernameInput = await driver.wait(until.elementLocated(By.xpath(\"//input[@placeholder='Username']\")), 10000);\n    let passwordInput = await driver.wait(until.elementLocated(By.xpath(\"//div[@class='password-wrapper']//input\")), 10000);\n    let loginButton = await driver.wait(until.elementLocated(By.xpath(\"//button[@type='submit']\")), 10000);\n    await usernameInput.sendKeys(\"admin\"); \n    await passwordInput.sendKeys(\"admin\");\n    await loginButton.click();\n    // Assertion Login: Memastikan berhasil masuk ke halaman dashboard/home\n    let dashboardTitle = await driver.wait(\n        until.elementLocated(By.xpath(\"//h2[text()='List Users']\")),\n        10000\n    );\n    assert.strictEqual(await dashboardTitle.isDisplayed(), true);\n    // 2. Assertion Memastikan tombol Add/Tambah user juga tampil\n    let addButton = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@class='add']\")),\n        10000\n    );\n    assert.strictEqual(await addButton.isDisplayed(), true);\n    // 3. Assertion Memastikan tombol Update/Perbarui user juga tampil\n    let updateButton = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@class='update']\")),\n        10000\n    );\n    assert.strictEqual(await updateButton.isDisplayed(), true);\n    // 4. Assertion Memastikan tombol Delete/hapus user juga tampil\n    let deleteButton = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@class='delete']\")),\n        10000\n    );\n    assert.strictEqual(await deleteButton.isDisplayed(), true);\n    \n    // 5. Assertion: Memastikan tombol checkout/pesan user juga tampil\n    let checkoutButton = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@data-testid='checkout-button']\")),\n        10000\n    );\n        assert.strictEqual(await checkoutButton.isDisplayed(), true);\n    // 6.assertion Ambil URL halaman saat ini\n    let currentUrl = await driver.getCurrentUrl();\n    assert.strictEqual(currentUrl, \"https://belajar-bareng.onrender.com/users\");\n    // Proses Add User: Klik menu/tombol tambah user lalu isi form\n    let menuAddUser = await driver.wait(until.elementLocated(By.xpath(\"//button[@class='add']\")), 10000);\n    await menuAddUser.click();\n    let inputUsername = await driver.wait(until.elementLocated(By.xpath(\"//input[@placeholder='Username']\")), 10000);\n    let inputAge = await driver.wait(until.elementLocated(By.xpath(\"//input[@placeholder='Age']\")), 10000);\n    let submitUserBtn = await driver.wait(until.elementLocated(By.xpath(\"//button[@type='submit']\")), 10000);\n    await inputUsername.sendKeys(\"nopi\");\n    await inputAge.sendKeys(\"2\");\n    await submitUserBtn.click();\n       \n    // [TAMBAHAN STEP] Klik tombol/menu 'List' supaya pindah ke halaman daftar user\n    let listNavBtn = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@class='list']\")), \n        10000\n    );\n    await listNavBtn.click();\n    // lakukan assertion untuk mencari data user yang baru ditambahkan\n    let insertedUser = await driver.wait(\n        until.elementLocated(By.xpath(\"//h3[text()='nopi']\")),\n        10000\n    );\n    assert.strictEqual(await insertedUser.isDisplayed(), true);\n} finally {\n    // Menutup browser setelah pengujian selesai\n    await driver.quit();\n}",
+              "code": "let options = new chrome.Options();\n//memastikan chrome bersih dari popup yang tidak diperlukan\noptions.addArguments(\"--disable-features=PasswordLeakDetection\");\noptions.setUserPreferences({\n    \"credentials_enable_service\": false,\n    \"profile.password_manager_enabled\": false,\n    \"profile.password_manager_leak_detection\": false\n});\nlet driver = await new Builder()\n    .forBrowser(\"chrome\")\n    .setChromeOptions(options)\n    .build();\ntry {\n    // Membuka URL website \n    await driver.get(\"https://belajar-bareng.onrender.com/\");\n  // Proses Login (Menunggu elemen input dan tombol login muncul)\n    let usernameInput = await driver.wait(until.elementLocated(By.xpath(\"//input[@placeholder='Username']\")), 10000);\n    let passwordInput = await driver.wait(until.elementLocated(By.xpath(\"//div[@class='password-wrapper']//input\")), 10000);\n    let loginButton = await driver.wait(until.elementLocated(By.xpath(\"//button[@type='submit']\")), 10000);\n    await usernameInput.sendKeys(\"admin\"); \n    await passwordInput.sendKeys(\"admin\");\n    await loginButton.click();\n    // Assertion Login: Memastikan berhasil masuk ke halaman dashboard/home\n    let dashboardTitle = await driver.wait(\n        until.elementLocated(By.xpath(\"//h2[text()='List Users']\")),\n        10000\n    );\n    assert.strictEqual(await dashboardTitle.isDisplayed(), true);\n    // 2. Assertion Memastikan tombol Add/Tambah user juga tampil\n    let addButton = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@class='add']\")),\n        10000\n    );\n    assert.strictEqual(await addButton.isDisplayed(), true);\n    // 3. Assertion Memastikan tombol Update/Perbarui user juga tampil\n    let updateButton = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@class='update']\")),\n        10000\n    );\n    assert.strictEqual(await updateButton.isDisplayed(), true);\n    // 4. Assertion Memastikan tombol Delete/hapus user juga tampil\n    let deleteButton = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@class='delete']\")),\n        10000\n    );\n    assert.strictEqual(await deleteButton.isDisplayed(), true);\n    \n    // 5. Assertion: Memastikan tombol checkout/pesan user juga tampil\n    let checkoutButton = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@data-testid='checkout-button']\")),\n        10000\n    );\n        assert.strictEqual(await checkoutButton.isDisplayed(), true);\n    // 6.assertion Ambil URL halaman saat ini\n    let currentUrl = await driver.getCurrentUrl();\n    assert.strictEqual(currentUrl, \"https://belajar-bareng.onrender.com/users\");\n    // Proses Add User: Klik menu/tombol tambah user lalu isi form\n    let menuAddUser = await driver.wait(until.elementLocated(By.xpath(\"//button[@class='add']\")), 10000);\n    await menuAddUser.click();\n    const firstName = faker.person.firstName();\n\n    let inputUsername = await driver.wait(until.elementLocated(By.xpath(\"//input[@placeholder='Username']\")), 10000);\n    let inputAge = await driver.wait(until.elementLocated(By.xpath(\"//input[@placeholder='Age']\")), 10000);\n    let submitUserBtn = await driver.wait(until.elementLocated(By.xpath(\"//button[@type='submit']\")), 10000);\n    await inputUsername.sendKeys(firstName);\n    await inputAge.sendKeys(\"2\");\n    await submitUserBtn.click();\n    \n    await driver.sleep(1000)\n    // [TAMBAHAN STEP] Klik tombol/menu 'List' supaya pindah ke halaman daftar user\n    let listNavBtn = await driver.wait(\n        until.elementLocated(By.xpath(\"//button[@class='list']\")), \n        10000\n    );\n    await listNavBtn.click();\n    // lakukan assertion untuk mencari data user yang baru ditambahkan\n    let insertedUser = await driver.wait(\n        until.elementLocated(By.xpath(`//h3[text()='${firstName}']`)),\n        10000\n    );\n    assert.strictEqual(await insertedUser.isDisplayed(), true);\n} finally {\n    // Menutup browser setelah pengujian selesai\n    await driver.quit();\n}",
               "err": {},
-              "uuid": "d752108a-93ee-47de-8137-db42a113439a",
-              "parentUUID": "aea6a175-d9ea-4aa8-aa36-bba2b7b13c8d",
+              "uuid": "9ecbe1ed-1fa2-4c41-9d10-b6a46826d6d0",
+              "parentUUID": "988a79c2-c790-4b4a-83c7-737d0bc7a749",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d752108a-93ee-47de-8137-db42a113439a"
+            "9ecbe1ed-1fa2-4c41-9d10-b6a46826d6d0"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 10372,
+          "duration": 10719,
           "root": false,
           "rootEmpty": false,
           "_timeout": 30000
@@ -73,7 +73,7 @@
       "duration": 0,
       "root": true,
       "rootEmpty": true,
-      "_timeout": 10000
+      "_timeout": 2000
     }
   ],
   "meta": {
